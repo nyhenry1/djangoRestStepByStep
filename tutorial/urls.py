@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-admin.autodiscover()
+from rest_framework.urlpatterns import format_suffix_patterns
+#jadmin.autodiscover()
 
 urlpatterns = patterns(
 	'snippets.views',
@@ -12,3 +13,4 @@ urlpatterns = patterns(
     url(r'^snippets/(?P<pk>[0-9]+)/$', 'snippet_detail'),
 #    url(r'^', include('snippets.urls')),
 )
+urlpatterns = format_suffix_patterns(urlpatterns)
